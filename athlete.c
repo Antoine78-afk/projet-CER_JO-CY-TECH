@@ -12,8 +12,8 @@ typedef struct   {
 
 typedef struct  {
     
-    char *prenom;
-    float performance[]
+    int num_athlete;
+    
     
 
 
