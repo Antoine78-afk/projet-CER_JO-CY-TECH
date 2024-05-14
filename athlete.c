@@ -17,10 +17,10 @@ typedef struct   {
 
 
 typedef struct  {
-    char nom[50];
-    float performance;
-    int nb_entrainement;
-    Entrainement entrainement[MAX_ENTRAINEMENTS];
+    
+    char *prenom;
+    float performance[]
+    
 
 
     

@@ -4,9 +4,8 @@ void menu()
     printf("pour choisir un athlète, entrer son numéro associé\n");
     printf("pour choisir une épreuve entrer sa lettre associé\n\n ");
 
-
-    char tab[5][20] = {"100m","200m","400m","marathon","relais 4*400"};
-    for(char c = 'a';c<'a'+5;c++){
+    ##création des différentes épreuves et attribution d'une lettre à chaque épreuve
+    char tab[5][20] = {"100m","200m","400m","marathon","relais 4*400"}; 
         printf("%c : %s \n",c,tab[c%97]);
     }
 
