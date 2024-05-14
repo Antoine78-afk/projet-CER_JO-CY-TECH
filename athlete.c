@@ -2,7 +2,7 @@ const int MAX_ENTRAINEMENTS = 10;
 #define MAX_athlete_relai 4
 
 
-
+//structure d'un entrainement
 typedef struct   {
     char date [20];
     char type_epreuve[20];
@@ -15,7 +15,7 @@ typedef struct   {
 } Entrainement;
 
 
-
+//structure d'un athlete
 typedef struct  {
     
     char *prenom;
@@ -28,7 +28,7 @@ typedef struct  {
 };Athlete;
 
 
-
+// structure pour le relai 4*400
 typedef struct {
     char date[20];
     char type_epreuve[20];
