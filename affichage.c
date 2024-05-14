@@ -12,7 +12,7 @@ void menu()
 
 
 }
-    
+// pour que l'entraineur ajoute les entrainements    
 void ajouterEntrainement(Athlete *athlete, char date[], char type_epreuve[], float temps, int position_relais) {
     
 
