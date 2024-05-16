@@ -1,19 +1,19 @@
-CC = gcc
-CFLAGS = -Wall -Wextra 
+//CC = gcc
+//CFLAGS = -Wall -Wextra 
 
-SRCS = main.c athlete.c
-OBJS = $(SRCS:.c=.o)
-EXEC = programme
+//SRCS = main.c athlete.c
+//OBJS = $(SRCS:.c=.o)
+//EXEC = programme
 
-.PHONY: all clean
+//.PHONY: all clean
 
-all: $(EXEC)
+//all: $(EXEC)
 
-$(EXEC): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+//$(EXEC): $(OBJS)
+	//$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+//%.o: %.c
+	//$(CC) $(CFLAGS) -c -o $@ $<
 
-clean:
-	rm -f $(EXEC) $(OBJS)
+//clean:
+	//rm -f $(EXEC) $(OBJS)
