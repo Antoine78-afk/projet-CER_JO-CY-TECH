@@ -1,4 +1,4 @@
-
+#ifndef STRUCTURES_H
 #define STRUCTURES_H
 
 #define MAX_ENTRAINEMENTS 100
@@ -17,4 +17,5 @@ typedef struct {
 } Athlete;
 
 #endif /* STRUCTURES_H */
+
 
