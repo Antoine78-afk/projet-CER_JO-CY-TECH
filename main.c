@@ -28,7 +28,7 @@ int main() {
     athlete1.nb_entrainements = 0;
 
     ajouterEntrainement(&athlete1, "2024-05-14", "100m", 10.5, -1);
-    ajouterEntrainement(&athlete1, "2024-05-15", "Relais", 0, 2);
+    ajouterEntrainement(&athlete1, "2024-05-15", "Relais", 10, 2);
 
     consulterHistoriqueEntrainements(&athlete1);
     consulterStatistiquesPerformance(&athlete1);

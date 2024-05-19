@@ -56,7 +56,7 @@ void consulterStatistiquesPerformance(Athlete *athlete) {
     float meilleur_temps = athlete->entrainements[0].temps;
     float pire_temps = athlete->entrainements[0].temps;
     float somme_temps = 0;
-
+//calcule la moyenne des temps ainsi que le pire et le meilleur
     for (int i = 0; i < athlete->nb_entrainements; i++) {
         float temps = athlete->entrainements[i].temps;
         somme_temps += temps;
