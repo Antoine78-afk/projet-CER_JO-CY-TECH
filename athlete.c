@@ -4,6 +4,8 @@
 
 
 #define MAX_ENTRAINEMENTS 100
+#define MAX_TYPES_EPREUVES 10
+
 
 void ajouterEntrainement(Athlete *athlete, char date[], char type_epreuve[], float temps, int position_relais) {
     // Vérifier si l'athlète a atteint le nombre maximum d'entraînements
@@ -53,25 +55,46 @@ void consulterHistoriqueEntrainementsParDate(Athlete *athlete, char date[]) {
 }
 
 void consulterStatistiquesPerformance(Athlete *athlete) {
-    float meilleur_temps = athlete->entrainements[0].temps;
-    float pire_temps = athlete->entrainements[0].temps;
-    float somme_temps = 0;
-//calcule la moyenne des temps ainsi que le pire et le meilleur
+    StatistiquesEpreuve stats[MAX_TYPES_EPREUVES];
+    int nb_types_epreuves = 0;
+
     for (int i = 0; i < athlete->nb_entrainements; i++) {
+        char *type_epreuve = athlete->entrainements[i].type_epreuve;
         float temps = athlete->entrainements[i].temps;
-        somme_temps += temps;
-        if (temps < meilleur_temps) {
-            meilleur_temps = temps;
+
+        int j;
+        for (j = 0; j < nb_types_epreuves; j++) {
+            if (strcmp(stats[j].type_epreuve, type_epreuve) == 0) {
+                break;
+            }
         }
-        if (temps > pire_temps) {
-            pire_temps = temps;
+
+        if (j == nb_types_epreuves) {
+            strcpy(stats[nb_types_epreuves].type_epreuve, type_epreuve);
+            stats[nb_types_epreuves].meilleur_temps = temps;
+            stats[nb_types_epreuves].pire_temps = temps;
+            stats[nb_types_epreuves].somme_temps = temps;
+            stats[nb_types_epreuves].nb_entrainements = 1;
+            nb_types_epreuves++;
+        } else {
+            if (temps < stats[j].meilleur_temps) {
+                stats[j].meilleur_temps = temps;
+            }
+            if (temps > stats[j].pire_temps) {
+                stats[j].pire_temps = temps;
+            }
+            stats[j].somme_temps += temps;
+            stats[j].nb_entrainements++;
         }
     }
 
-    float moyenne_temps = somme_temps / athlete->nb_entrainements;
-
     printf("Statistiques de performance pour %s:\n", athlete->nom);
-    printf("Meilleur temps: %.2f\n", meilleur_temps);
-    printf("Pire temps: %.2f\n", pire_temps);
-    printf("Moyenne des temps: %.2f\n", moyenne_temps);
+    for (int i = 0; i < nb_types_epreuves; i++) {
+        float moyenne_temps = stats[i].somme_temps / stats[i].nb_entrainements;
+        printf("Type d'épreuve: %s\n", stats[i].type_epreuve);
+        printf("  Meilleur temps: %.2f\n", stats[i].meilleur_temps);
+        printf("  Pire temps: %.2f\n", stats[i].pire_temps);
+        printf("  Moyenne des temps: %.2");
+    }
 }
+    

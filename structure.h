@@ -16,6 +16,15 @@ typedef struct {
     Entrainement entrainements[MAX_ENTRAINEMENTS];
 } Athlete;
 
+typedef struct {
+    char type_epreuve[20];
+    float meilleur_temps;
+    float pire_temps;
+    float somme_temps;
+    int nb_entrainements;
+} StatistiquesEpreuve;
+
+
 #endif /* STRUCTURES_H */
 
 

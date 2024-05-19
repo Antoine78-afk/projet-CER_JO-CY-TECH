@@ -24,14 +24,22 @@
 //void ajouterEntrainement(Athlete *athlete, char date[], char type_epreuve[], float temps, int position_relais) {
 int main() {
     Athlete athlete1;
+    Athlete athlete2;
     strcpy(athlete1.nom, "John Doe");
+    strcpy(athlete2.nom, "antoine marhic");
     athlete1.nb_entrainements = 0;
 
     ajouterEntrainement(&athlete1, "2024-05-14", "100m", 10.5, -1);
     ajouterEntrainement(&athlete1, "2024-05-15", "Relais", 10, 2);
+    ajouterEntrainement(&athlete2, "2024-05-16", "100m", 12, -1);
+    ajouterEntrainement(&athlete2, "2024-05-16", "200m", 15, -1);
+
+
 
     consulterHistoriqueEntrainements(&athlete1);
     consulterStatistiquesPerformance(&athlete1);
+    consulterStatistiquesPerformance(&athlete2);
+    
 
     return 0;
 }
