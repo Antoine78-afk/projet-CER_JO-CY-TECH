@@ -22,8 +22,8 @@ Les performances de chaque athlète sont stockées dans des fichiers individuels
 ##Fonctionnalités pour l'Entraîneur
 L'entraîneur peut :
 
--Entrer et sauvegarder les informations/résultats d'un nouvel entraînement.
--Consulter l'historique des entraînements par athlète, par épreuve ou par date.
+-Entrer et sauvegarder les informations/résultats d'un nouvel entraînement.  
+-Consulter l'historique des entraînements par athlète, par épreuve ou par date.  
 -Consulter des statistiques de performances de chaque athlète, incluant :
 -Le meilleur, le pire temps et la moyenne pour une épreuve donnée.
 -Les trois meilleurs athlètes pour une discipline en termes de temps moyen.
