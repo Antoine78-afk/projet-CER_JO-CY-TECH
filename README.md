@@ -29,7 +29,7 @@ Entrer et sauvegarder les résultats d'un nouvel entraînement\
 L'utilisateur sera invité à saisir les informations nécessaires (date, type d'épreuve, temps, position pour le relais) et ces données seront sauvegardées dans le fichier correspondant à l'athlète.\
 
 Consulter l'historique des entraînements\
-L'utilisateur peut sélectionner un critère de consultation (par athlète, par épreuve ou par date) et le programme affichera les informations correspondantes.\
+L'utilisateur peut sélectionner un critère de consultation (par athlète, par épreuve ou par date) et le programme affichera les informations correspondantes.
 
 Consulter des statistiques de performances\
 L'utilisateur peut demander un résumé des performances d'un athlète, les trois meilleurs athlètes pour une discipline ou la progression des performances d'un athlète entre deux dates.
