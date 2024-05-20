@@ -1,27 +1,27 @@
 Introduction\
-Ce programme permet de gérer et de suivre les performances d'athlètes dans diverses épreuves d'athlétisme. Il est conçu pour gérer des sportifs d'un seul genre et stocke les résultats d'entraînements dans des fichiers individuels pour chaque athlète. Les fonctionnalités principales incluent l'enregistrement de nouveaux entraînements, la consultation de l'historique des entraînements et l'analyse des performances des athlètes.
+Ce programme permet de gérer et de suivre les performances d'athlètes dans diverses épreuves d'athlétisme.\ Il est conçu pour gérer des sportifs d'un seul genre et stocke les résultats d'entraînements dans des fichiers individuels pour chaque athlète.\ Les fonctionnalités principales incluent l'enregistrement de nouveaux entraînements, la consultation de l'historique des entraînements et l'analyse des performances des athlètes.
 
-Fonctionnalités
-Enregistrement des Entraînements
-Date de l'entraînement : La date à laquelle l'entraînement a eu lieu.
-Type d'épreuve : L'épreuve effectuée (100 m, 400 m, 5000 m, marathon, relais 4*400 m).
-Temps réalisé : Le temps réalisé par l'athlète.
-Position dans le relais : Pour les épreuves de relais, la position de l'athlète (1 à 4).
-Consultation de l'Historique des Entraînements
-Par athlète : Affichage de tous les entraînements d'un athlète.
-Par épreuve : Affichage des entraînements par type d'épreuve.
-Par date : Affichage des entraînements par date.
-Statistiques sur les Athlètes
-Résumé des performances : Affiche le meilleur, le pire et le temps moyen d'un athlète pour une épreuve donnée.
-Sélection pour les JO : Affiche les trois meilleurs athlètes pour chaque discipline, basé sur les meilleurs temps moyens.
-Progression des performances : Affiche la différence de temps pour une même épreuve entre deux dates.
-Améliorations possibles
-Régression linéaire : Calculer l'évolution des performances d'un athlète à l'aide de la méthode des moindres carrés.
-Affichage trié : Permet de trier l'historique des entraînements par date, par ordre alphabétique de joueur, etc.
-Ajout d'épreuves : Possibilité d'ajouter de nouvelles épreuves.
-Autres améliorations : Suggestions et idées supplémentaires pour enrichir le programme.
-Structure des Fichiers
-Chaque fichier d'athlète contient une liste des entraînements sous le format suivant :
+Fonctionnalités\
+Enregistrement des Entraînements\
+Date de l'entraînement : La date à laquelle l'entraînement a eu lieu.\
+Type d'épreuve : L'épreuve effectuée (100 m, 400 m, 5000 m, marathon, relais 4*400 m).\
+Temps réalisé : Le temps réalisé par l'athlète.\
+Position dans le relais : Pour les épreuves de relais, la position de l'athlète (1 à 4).\
+Consultation de l'Historique des Entraînements\
+Par athlète : Affichage de tous les entraînements d'un athlète.\
+Par épreuve : Affichage des entraînements par type d'épreuve.\
+Par date : Affichage des entraînements par date.\
+Statistiques sur les Athlètes\
+Résumé des performances : Affiche le meilleur, le pire et le temps moyen d'un athlète pour une épreuve donnée.\
+Sélection pour les JO : Affiche les trois meilleurs athlètes pour chaque discipline, basé sur les meilleurs temps moyens.\
+Progression des performances : Affiche la différence de temps pour une même épreuve entre deux dates.\
+Améliorations possibles\
+Régression linéaire : Calculer l'évolution des performances d'un athlète à l'aide de la méthode des moindres carrés.\
+Affichage trié : Permet de trier l'historique des entraînements par date, par ordre alphabétique de joueur, etc.\
+Ajout d'épreuves : Possibilité d'ajouter de nouvelles épreuves.\
+Autres améliorations : Suggestions et idées supplémentaires pour enrichir le programme.\
+Structure des Fichiers\
+Chaque fichier d'athlète contient une liste des entraînements sous le format suivant :\
 
 css
 Copier le code
