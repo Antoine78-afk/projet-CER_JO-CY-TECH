@@ -1,13 +1,17 @@
-
 #ifndef ATHLETE_H
 #define ATHLETE_H
 
-#include "structure.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void ajouterEntrainement(Athlete *athlete, char date[], char type_epreuve[], float temps, int position_relais);
-void consulterHistoriqueEntrainements(Athlete *athlete);
-void consulterHistoriqueEntrainementsParType(Athlete *athlete, char type_epreuve[]);
-void consulterHistoriqueEntrainementsParDate(Athlete *athlete, char date[]);
-void consulterStatistiquesPerformance(Athlete *athlete);
+typedef struct {
+    char nom[50];
+    char prenom[50];
+    char genre[10];
+} Athlete;
 
-#endif /* ATHLETE_H */
+Athlete* creerAthlete(char* nom, char* prenom, char* genre);
+void afficherAthlete(Athlete* athlete);
+
+#endif
