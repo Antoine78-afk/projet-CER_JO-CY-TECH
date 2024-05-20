@@ -32,4 +32,4 @@ Consulter l'historique des entraînements\
 L'utilisateur peut sélectionner un critère de consultation (par athlète, par épreuve ou par date) et le programme affichera les informations correspondantes.\
 
 Consulter des statistiques de performances\
-L'utilisateur peut demander un résumé des performances d'un athlète, les trois meilleurs athlètes pour une discipline ou la progression des performances d'un athlète entre deux dates.\
+L'utilisateur peut demander un résumé des performances d'un athlète, les trois meilleurs athlètes pour une discipline ou la progression des performances d'un athlète entre deux dates.
