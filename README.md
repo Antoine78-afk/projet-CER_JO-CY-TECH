@@ -1,57 +1,45 @@
-# projet-CER_JO-
+Introduction
+Ce programme permet de gérer et de suivre les performances d'athlètes dans diverses épreuves d'athlétisme. Il est conçu pour gérer des sportifs d'un seul genre et stocke les résultats d'entraînements dans des fichiers individuels pour chaque athlète. Les fonctionnalités principales incluent l'enregistrement de nouveaux entraînements, la consultation de l'historique des entraînements et l'analyse des performances des athlètes.
 
 Fonctionnalités
--Epreuves Gérées
-Le programme prend en charge les épreuves suivantes :
+Enregistrement des Entraînements
+Date de l'entraînement : La date à laquelle l'entraînement a eu lieu.
+Type d'épreuve : L'épreuve effectuée (100 m, 400 m, 5000 m, marathon, relais 4*400 m).
+Temps réalisé : Le temps réalisé par l'athlète.
+Position dans le relais : Pour les épreuves de relais, la position de l'athlète (1 à 4).
+Consultation de l'Historique des Entraînements
+Par athlète : Affichage de tous les entraînements d'un athlète.
+Par épreuve : Affichage des entraînements par type d'épreuve.
+Par date : Affichage des entraînements par date.
+Statistiques sur les Athlètes
+Résumé des performances : Affiche le meilleur, le pire et le temps moyen d'un athlète pour une épreuve donnée.
+Sélection pour les JO : Affiche les trois meilleurs athlètes pour chaque discipline, basé sur les meilleurs temps moyens.
+Progression des performances : Affiche la différence de temps pour une même épreuve entre deux dates.
+Améliorations possibles
+Régression linéaire : Calculer l'évolution des performances d'un athlète à l'aide de la méthode des moindres carrés.
+Affichage trié : Permet de trier l'historique des entraînements par date, par ordre alphabétique de joueur, etc.
+Ajout d'épreuves : Possibilité d'ajouter de nouvelles épreuves.
+Autres améliorations : Suggestions et idées supplémentaires pour enrichir le programme.
+Structure des Fichiers
+Chaque fichier d'athlète contient une liste des entraînements sous le format suivant :
 
--100 mètres
--400 mètres
--5000 mètres
--Marathon
--Relais 4x400 mètres
-##Stockage des Performances
-Les performances de chaque athlète sont stockées dans des fichiers individuels nommés d'après le sportif.
+css
+Copier le code
+YYYY-MM-DD;EPREUVE;TEMPS;[POSITION]
+Exemple pour une épreuve de relais :
 
-###Chaque fichier contient les informations suivantes pour chaque entraînement :
+yaml
+Copier le code
+2023-05-20;Relais 4*400 m;52.35;1
+2023-05-20;Relais 4*400 m;53.20;2
+2023-05-20;Relais 4*400 m;54.15;3
+2023-05-20;Relais 4*400 m;51.85;4
+Utilisation du Programme
+Entrer et sauvegarder les résultats d'un nouvel entraînement
+L'utilisateur sera invité à saisir les informations nécessaires (date, type d'épreuve, temps, position pour le relais) et ces données seront sauvegardées dans le fichier correspondant à l'athlète.
 
--Date de l'entraînement
--Type d'épreuve
--Temps de l'athlète pour l'épreuve
--Pour les épreuves de relais, le fichier contient également la position de l'athlète pendant le relais.
+Consulter l'historique des entraînements
+L'utilisateur peut sélectionner un critère de consultation (par athlète, par épreuve ou par date) et le programme affichera les informations correspondantes.
 
-##Fonctionnalités pour l'Entraîneur
-L'entraîneur peut :
-
--Entrer et sauvegarder les informations/résultats d'un nouvel entraînement.  
--Consulter l'historique des entraînements par athlète, par épreuve ou par date.  
--Consulter des statistiques de performances de chaque athlète, incluant :
--Le meilleur, le pire temps et la moyenne pour une épreuve donnée.
--Les trois meilleurs athlètes pour une discipline en termes de temps moyen.
--La progression d'un athlète entre deux dates pour une même épreuve.
--Structure des Fichiers
--Fichiers des Athlètes
-Chaque fichier d'athlète est structuré de la manière suivante :
-
-
-
-
-
-L'entraîneur peut entrer les informations d'un nouvel entraînement via le programme. Les informations suivantes doivent être fournies :
-
-Nom de l'athlète
-Date de l'entraînement
-Type d'épreuve
-Temps réalisé
-Position si c'est une épreuve de relais
-Consulter l'Historique des Entraînements
-L'entraîneur peut filtrer les entraînements par :
-
-Athlète
-Type d'épreuve
-Date
-Consulter les Statistiques des Performances
-L'entraîneur peut :
-
-Obtenir un résumé des performances d'un athlète pour une épreuve donnée.
-Identifier les trois meilleurs athlètes pour une discipline spécifique.
-Voir la progression d'un athlète entre deux dates pour une même épreuve.
+Consulter des statistiques de performances
+L'utilisateur peut demander un résumé des performances d'un athlète, les trois meilleurs athlètes pour une discipline ou la progression des performances d'un athlète entre deux dates.
