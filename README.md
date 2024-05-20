@@ -23,23 +23,13 @@ Autres améliorations : Suggestions et idées supplémentaires pour enrichir le 
 Structure des Fichiers\
 Chaque fichier d'athlète contient une liste des entraînements sous le format suivant :\
 
-css
-Copier le code
-YYYY-MM-DD;EPREUVE;TEMPS;[POSITION]
-Exemple pour une épreuve de relais :
 
-yaml
-Copier le code
-2023-05-20;Relais 4*400 m;52.35;1
-2023-05-20;Relais 4*400 m;53.20;2
-2023-05-20;Relais 4*400 m;54.15;3
-2023-05-20;Relais 4*400 m;51.85;4
-Utilisation du Programme
-Entrer et sauvegarder les résultats d'un nouvel entraînement
-L'utilisateur sera invité à saisir les informations nécessaires (date, type d'épreuve, temps, position pour le relais) et ces données seront sauvegardées dans le fichier correspondant à l'athlète.
+Utilisation du Programme\
+Entrer et sauvegarder les résultats d'un nouvel entraînement\
+L'utilisateur sera invité à saisir les informations nécessaires (date, type d'épreuve, temps, position pour le relais) et ces données seront sauvegardées dans le fichier correspondant à l'athlète.\
 
-Consulter l'historique des entraînements
-L'utilisateur peut sélectionner un critère de consultation (par athlète, par épreuve ou par date) et le programme affichera les informations correspondantes.
+Consulter l'historique des entraînements\
+L'utilisateur peut sélectionner un critère de consultation (par athlète, par épreuve ou par date) et le programme affichera les informations correspondantes.\
 
-Consulter des statistiques de performances
-L'utilisateur peut demander un résumé des performances d'un athlète, les trois meilleurs athlètes pour une discipline ou la progression des performances d'un athlète entre deux dates.
+Consulter des statistiques de performances\
+L'utilisateur peut demander un résumé des performances d'un athlète, les trois meilleurs athlètes pour une discipline ou la progression des performances d'un athlète entre deux dates.\
