@@ -1,3 +1,24 @@
+#include "performance.h"
+#include "file_utils.h"
+#include "stats.h"
+
+Performance* creerPerformance(char* date, char* epreuve, float temps, int positionRelais) {
+    Performance* performance = (Performance*) malloc(sizeof(Performance));
+    strcpy(performance->date, date);
+    strcpy(performance->epreuve, epreuve);
+    performance->temps = temps;
+    performance->positionRelais = positionRelais;
+    return performance;
+}
+
+void afficherPerformance(Performance* performance) {
+    printf("Date: %s, Epreuve: %s, Temps: %.2f", performance->date, performance->epreuve, performance->temps);
+    if (performance->positionRelais != -1) {
+        printf(", Position Relais: %d", performance->positionRelais);
+    }
+    printf("\n");
+}
+
 int validerDate(char* date) {
     int annee, mois, jour;
     if (sscanf(date, "%4d-%2d-%2d", &annee, &mois, &jour) != 3) {
@@ -10,5 +31,58 @@ int validerDate(char* date) {
     if ((mois == 4 || mois == 6 || mois == 9 || mois == 11) && jour > 30) {
         return 0; // Mois de 30 jours
     }
+    if (mois == 2) {
+        // Vérification des années bissextiles
+        int bissextile = (annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0);
+        if (jour > 29 || (jour == 29 && !bissextile)) {
+            return 0; // Février trop de jours
+        }
+    }
     return 1; // Date valide
+}
+
+void ajouterEntrainement() {
+    char nom[50], date[11], epreuve[50];
+    float temps;
+    int positionRelais = -1;
+    
+    printf("Nom de l'athlète: ");
+    scanf("%s", nom);
+    do {
+        printf("Date (AAAA-MM-JJ): ");
+        scanf("%s", date);
+        if (!validerDate(date)) {
+            printf("Date invalide. Veuillez entrer une date valide au format AAAA-MM-JJ.\n");
+        }
+    } while (!validerDate(date));
+    
+    printf("Epreuve: ");
+    scanf("%s", epreuve);
+    printf("Temps: ");
+    scanf("%f", &temps);
+    
+    if (strcmp(epreuve, "relais") == 0) {
+        printf("Position dans le relais (1-4): ");
+        scanf("%d", &positionRelais);
+    }
+
+    Performance* performance = creerPerformance(date, epreuve, temps, positionRelais);
+    sauvegarderPerformance(nom, performance);
+    free(performance);
+}
+
+void consulterHistorique() {
+    char nom[50];
+    printf("Nom de l'athlète: ");
+    scanf("%s", nom);
+    lireHistorique(nom);
+}
+
+void consulterStats() {
+    char nom[50], epreuve[50];
+    printf("Nom de l'athlète: ");
+    scanf("%s", nom);
+    printf("Epreuve: ");
+    scanf("%s", epreuve);
+    afficherStats(nom, epreuve);
 }
