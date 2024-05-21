@@ -31,7 +31,13 @@ int validerDate(char* date) {
     if ((mois == 4 || mois == 6 || mois == 9 || mois == 11) && jour > 30) {
         return 0; // Mois de 30 jours
     }
-   
+    if (mois == 2) {
+        // Vérification des années bissextiles
+        int bissextile = (annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0);
+        if (jour > 29 || (jour == 29 && !bissextile)) {
+            return 0; // Février trop de jours
+        }
+    }
     return 1; // Date valide
 }
 
@@ -49,6 +55,7 @@ void ajouterEntrainement() {
     
     printf("Nom de l'athlète: ");
     scanf("%s", nom);
+    
     do {
         printf("Date (AAAA-MM-JJ): ");
         scanf("%s", date);
@@ -60,13 +67,16 @@ void ajouterEntrainement() {
     printf("Epreuve: ");
     scanf("%s", epreuve);
     
+    int validInput = 0;
     do {
         printf("Temps: ");
-        scanf("%f", &temps);
-        if (!validerTemps(temps)) {
+        if (scanf("%f", &temps) == 1 && validerTemps(temps)) {
+            validInput = 1;
+        } else {
             printf("Temps invalide. Veuillez entrer un temps positif.\n");
+            while (getchar() != '\n'); // Nettoie le buffer d'entrée
         }
-    } while (!validerTemps(temps));
+    } while (!validInput);
     
     if (strcmp(epreuve, "relais") == 0) {
         printf("Position dans le relais (1-4): ");
