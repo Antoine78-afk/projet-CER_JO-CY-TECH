@@ -58,15 +58,15 @@ int comparerAthletes(const void* a, const void* b) {
 void envoyerAuxJO() {
     const char* epreuves[] = {"100m", "400m", "5000m", "marathon", "relais"};
     int nbEpreuves = 5;
-    char athlètes[100][50]; // Tableau pour stocker les noms des athlètes
-    int nbAthlètes = 0;
+    char athletes[100][50]; // Tableau pour stocker les noms des athlètes
+    int nbAthletes = 0;
 
     // Charger la liste des athlètes
     FILE* athletesFile = fopen("athletes.txt", "r");
     if (athletesFile != NULL) {
-        while (fgets(athlètes[nbAthlètes], sizeof(athlètes[nbAthlètes]), athletesFile)) {
-            athlètes[nbAthlètes][strcspn(athlètes[nbAthlètes], "\n")] = '\0'; // Retirer le saut de ligne
-            nbAthlètes++;
+        while (fgets(athletes[nbAthletes], sizeof(athletes[nbAthletes]), athletesFile)) {
+            athletes[nbAthletes][strcspn(athletes[nbAthletes], "\n")] = '\0'; // Retirer le saut de ligne
+            nbAthletes++;
         }
         fclose(athletesFile);
     } else {
@@ -79,9 +79,9 @@ void envoyerAuxJO() {
         AthletePerformance performances[100];
         int nbPerformances = 0;
 
-        for (int j = 0; j < nbAthlètes; j++) {
+        for (int j = 0; j < nbAthletes; j++) {
             char filename[60];
-            sprintf(filename, "%s.txt", athlètes[j]);
+            sprintf(filename, "%s.txt", athletes[j]);
             FILE* file = fopen(filename, "r");
             if (file != NULL) {
                 char line[100];
@@ -102,7 +102,7 @@ void envoyerAuxJO() {
 
                 if (nbEntrainements > 0) {
                     performances[nbPerformances].tempsMoyen = sommeTemps / nbEntrainements;
-                    strcpy(performances[nbPerformances].nom, athlètes[j]);
+                    strcpy(performances[nbPerformances].nom, athletes[j]);
                     nbPerformances++;
                 }
             }
