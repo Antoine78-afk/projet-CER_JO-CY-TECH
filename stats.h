@@ -1,13 +1,11 @@
-#ifndef stats_h
-#define stats_h
-
-
-
-#endif /* stats_h */
-
 #ifndef STATS_H
 #define STATS_H
-// Déclaration de la fonction pour afficher les statistiques d'un athlète pour une épreuve donnée
+
+// Affiche les statistiques des performances d'un athlète pour une épreuve donnéevoid afficherStats(char* nom, char* epreuve);
 void afficherStats(char* nom, char* epreuve);
+// Affiche les trois meilleurs athlètes pour chaque épreuve et les envoie aux JO
+void envoyerAuxJO();
+// Affiche la progression d'un athlète pour une même épreuve entre deux dates
+void afficherProgression(char* nom, char* epreuve, char* date1, char* date2);
 
 #endif
