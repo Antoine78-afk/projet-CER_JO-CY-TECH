@@ -5,17 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Définition de la structure Athlete
+// Structure représentant un athlète
 typedef struct {
-    char nom[50]; // Nom de l'athlète
-    char prenom[50]; // Prénom de l'athlète
-    char genre[10]; // Genre de l'athlète
+    char nom[50];
+    char prenom[50];
 } Athlete;
 
-// Déclaration de la fonction pour créer un athlète
-Athlete* creerAthlete(char* nom, char* prenom, char* genre);
-
-// Déclaration de la fonction pour afficher les informations d'un athlète
+// Crée un athlète
+Athlete* creerAthlete(char* nom, char* prenom);
+// Affiche les informations d'un athlète
 void afficherAthlete(Athlete* athlete);
 
-#endif // ATHLETE_H
+#endif
