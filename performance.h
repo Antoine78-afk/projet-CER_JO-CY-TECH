@@ -7,27 +7,29 @@
 #include <time.h>
 #include "athlete.h"
 
-// Définition de la structure Performance
+// Structure représentant une performance
 typedef struct {
-    char date[11]; // Date de la performance au format AAAA-MM-JJ
-    char epreuve[50]; // Nom de l'épreuve
-    float temps; // Temps réalisé lors de l'épreuve
-    int positionRelais; // Position dans le relais, -1 si ce n'est pas une épreuve de relais
+    char date[11];
+    char epreuve[50];
+    float temps;
+    int positionRelais; // -1 si ce n'est pas une épreuve de relais
 } Performance;
 
-// Déclaration de la fonction pour créer une nouvelle performance
+// Crée une performance
 Performance* creerPerformance(char* date, char* epreuve, float temps, int positionRelais);
-
-// Déclaration de la fonction pour afficher les détails d'une performance
+// Affiche une performance
 void afficherPerformance(Performance* performance);
-
-// Déclaration de la fonction pour ajouter un nouvel entraînement
+// Ajoute un nouvel entraînement
 void ajouterEntrainement();
-
-// Déclaration de la fonction pour consulter l'historique des performances
+// Consulte l'historique des entraînements
 void consulterHistorique();
+// Valide le format d'une date
+int validerDate(char* date);
+// Valide le format d'un temps
+int validerTemps(float temps);
+// Valide le nom d'une épreuve
+int validerEpreuve(char* epreuve);
+void afficherStats(char* nom, char* epreuve);
 
-// Déclaration de la fonction pour consulter les statistiques des performances
-void consulterStats();
 
-#endif // PERFORMANCE_H
+#endif
