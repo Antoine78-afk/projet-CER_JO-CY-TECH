@@ -5,40 +5,87 @@
 #include "file_utils.h"
 #include "stats.h"
 
-// Cette fonction affiche le menu principal du programme
+// Déclare la fonction pour envoyer les athlètes aux JO
+void envoyerAuxJO();
+
+// Déclare la fonction pour consulter les statistiques des athlètes et afficher la progression
+void consulterStatsEtProgression();
+
+// Déclare la fonction pour ajouter un nouvel entraînement
+void ajouterEntrainement();
+
+// Affiche le menu principal
 void menu() {
-    printf("Gestion des performances des athlètes\n"); // Titre du menu
-    printf("1. Ajouter un nouvel entraînement\n"); // Option pour ajouter un entraînement
-    printf("2. Consulter l'historique des entraînements\n"); // Option pour consulter l'historique
-    printf("3. Consulter les statistiques\n"); // Option pour consulter les statistiques
-    printf("4. Quitter\n"); // Option pour quitter le programme
+    printf("Gestion des performances des athlètes\n");
+    printf("1. Ajouter un nouvel entraînement\n");
+    printf("2. Consulter l'historique des entraînements\n");
+    printf("3. Consulter les statistiques et la progression d'un athlète\n");
+    printf("4. Voir les 3 meilleurs athlètes pour chaque épreuve et les envoyer aux JO\n");
+    printf("5. Quitter\n");
 }
 
 int main() {
-    int choix; // Variable pour stocker le choix de l'utilisateur
+    int choix;
     do {
-        menu(); // Appelle la fonction pour afficher le menu
-        printf("Choisissez une option : "); // Demande à l'utilisateur de choisir une option
-        scanf("%d", &choix); // Lit le choix de l'utilisateur
-        switch (choix) { // Exécute une action en fonction du choix de l'utilisateur
+        menu();
+        printf("Choisissez une option : ");
+        scanf("%d", &choix);
+        switch (choix) {
             case 1:
-                ajouterEntrainement(); // Appelle la fonction pour ajouter un entraînement
+                ajouterEntrainement();
                 break;
             case 2:
-                consulterHistorique(); // Appelle la fonction pour consulter l'historique des entraînements
+                consulterHistorique();
                 break;
             case 3:
-                consulterStats(); // Appelle la fonction pour consulter les statistiques
+                consulterStatsEtProgression();
                 break;
             case 4:
-                printf("Au revoir!\n"); // Message de sortie
+                envoyerAuxJO();
+                break;
+            case 5:
+                printf("Au revoir!\n");
                 break;
             default:
-                printf("Option invalide, veuillez réessayer.\n"); // Message pour un choix invalide
+                printf("Option invalide, veuillez réessayer.\n");
         }
-    } while (choix != 4); // Répète le menu jusqu'à ce que l'utilisateur choisisse de quitter
+    } while (choix != 5);
 
-    return 0; // Retourne 0 pour indiquer que le programme s'est terminé correctement
+    return 0;
 }
 
+// Affiche les statistiques des athlètes et permet d'afficher la progression d'un athlète
+void consulterStatsEtProgression() {
+    int choix;
+    char nom[50], epreuve[50], date1[11], date2[11];
+    
+    printf("1. Consulter les statistiques\n");
+    printf("2. Afficher la progression d'un athlète\n");
+    printf("Choisissez une option : ");
+    scanf("%d", &choix);
+    
+    switch (choix) {
+        case 1:
+            printf("Nom de l'athlète: ");
+            scanf("%s", nom);
+            printf("Epreuve: ");
+            scanf("%s", epreuve);
+            afficherStats(nom, epreuve);
+            break;
+        case 2:
+            printf("Nom de l'athlète: ");
+            scanf("%s", nom);
+            printf("Epreuve: ");
+            scanf("%s", epreuve);
+            printf("Date de début (AAAA-MM-JJ): ");
+            scanf("%s", date1);
+            printf("Date de fin (AAAA-MM-JJ): ");
+            scanf("%s", date2);
+            afficherProgression(nom, epreuve, date1, date2);
+            break;
+        default:
+            printf("Option invalide, retour au menu principal.\n");
+    }
+}
 
+    
