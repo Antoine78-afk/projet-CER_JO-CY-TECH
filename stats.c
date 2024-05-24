@@ -2,15 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <float.h>
-#include "stats.h"
-#include "performance.h"
-#include "file_utils.h"
+#include "header.h"
 
-// Structure représentant les performances moyennes d'un athlète
-typedef struct {
-    char nom[50];
-    float tempsMoyen;
-} AthletePerformance;
+
+
 
 // Affiche les statistiques des performances d'un athlète pour une épreuve donnée
 void afficherStats(char* nom, char* epreuve) {
@@ -110,7 +105,7 @@ void envoyerAuxJO() {
                     nbPerformances++;
                 }
             } else {
-                perror("Erreur lors de l'ouverture du fichier de performances");
+                perror("il n'y a pas d'athlète à cette position");
             }
         }
 
@@ -163,6 +158,9 @@ void afficherProgression(char* nom, char* epreuve, char* date1, char* date2) {
         printf("Pas d'historique trouvé pour cet athlète\n");
     }
 }
+
+
+
 
 
 
