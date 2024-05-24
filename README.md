@@ -16,14 +16,14 @@ Par date : Affichage des entraînements par date.\
 Statistiques sur les Athlètes\
 Résumé des performances : Affiche le meilleur, le pire et le temps moyen d'un athlète pour une épreuve donnée.\
 Sélection pour les JO : Affiche les trois meilleurs athlètes pour chaque discipline, basé sur les meilleurs temps moyens.\
-Progression des performances : Affiche la différence de temps pour une même épreuve entre deux dates.\
+Progression des performances : Affiche la différence de temps pour une même épreuve entre deux dates.
  ### Améliorations possibles
 Régression linéaire : Calculer l'évolution des performances d'un athlète à l'aide de la méthode des moindres carrés.\
 Affichage trié : Permet de trier l'historique des entraînements par date, par ordre alphabétique de joueur, etc.\
 Ajout d'épreuves : Possibilité d'ajouter de nouvelles épreuves.\
 Autres améliorations : Suggestions et idées supplémentaires pour enrichir le programme.\
 Structure des Fichiers\
-Chaque fichier d'athlète contient une liste des entraînements sous le format suivant :\
+Chaque fichier d'athlète contient une liste des entraînements sous le format suivant :(date,épreuve,temps,place dans le relais:-1 si autre sport)
 
 
 ### Utilisation du Programme
