@@ -1,44 +1,34 @@
-# Nom de l'exécutable
-TARGET = gestion_sport
+# Makefile to compile the project
 
-# Compilateur et options de compilation
+# Compiler
 CC = gcc
+
+# Compiler flags
 CFLAGS = -Wall -Wextra -std=c11
 
-# Liste des fichiers objets
-OBJ = main.o athlete.o performance.o file_utils.o stats.o
+# Executable name
+TARGET = main
 
-# Règle par défaut
+# Source files
+SRCS = athlete.c file_utils.c main.c performance.c stats.c
+
+# Object files
+OBJS = $(SRCS:.c=.o)
+
+# Default rule to build the executable
 all: $(TARGET)
 
-# Règle pour créer l'exécutable
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+# Rule to link object files and create the executable
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-# Règle pour compiler main.c
-main.o: main.c 
-	$(CC) $(CFLAGS) -c main.c
+# Rule to compile source files into object files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# Règle pour compiler athlete.c
-athlete.o: athlete.c header.h
-	$(CC) $(CFLAGS) -c athlete.c
-
-# Règle pour compiler performance.c
-performance.o: performance.c header.h
-	$(CC) $(CFLAGS) -c performance.c
-
-# Règle pour compiler file_utils.c
-file_utils.o: file_utils.c header.h
-	$(CC) $(CFLAGS) -c file_utils.c
-
-# Règle pour compiler stats.c
-stats.o: stats.c stats.h performance.h
-	$(CC) $(CFLAGS) -c stats.c
-
-# Règle pour nettoyer les fichiers objets et l'exécutable
+# Clean up build files
 clean:
-	rm -f $(TARGET) $(OBJ)
+	rm -f $(OBJS) $(TARGET)
 
-# Règle pour nettoyer seulement les fichiers objets
-clean_obj:
-	rm -f $(OBJ)
+# Rebuild the project
+rebuild: clean all
