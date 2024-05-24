@@ -1,4 +1,4 @@
-#include "file_utils.h"
+#include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,5 +37,4 @@ void lireHistorique(char* nom) {
         printf("Pas d'historique trouvé pour cet athlète\n");
     }
 }
-
 
