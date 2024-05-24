@@ -24,9 +24,8 @@ Chaque fichier d'athlète contient une liste des entraînements sous le format s
 Régression linéaire : Calculer l'évolution des performances d'un athlète à l'aide de la méthode des moindres carrés.\
 Affichage trié : Permet de trier l'historique des entraînements par date, par ordre alphabétique de joueur, etc.\
 Ajout d'épreuves : Possibilité d'ajouter de nouvelles épreuves.\
-Autres améliorations : Suggestions et idées supplémentaires pour enrichir le programme.\
-Structure des Fichiers\
-Chaque fichier d'athlète contient une liste des entraînements sous le format suivant :(date,épreuve,temps,place dans le relais:-1 si autre sport)
+Rendre paramétrable l'emplacement des fichiers des athlètes.
+
 
 
 ### Utilisation du Programme
