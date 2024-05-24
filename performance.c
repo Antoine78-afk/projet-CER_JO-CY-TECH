@@ -56,7 +56,7 @@ int validerEpreuve(char* epreuve) {
 
 // Vérifie qu'il n'y a pas déjà un entraînement de relais à cette date
 int verifierRelaisUnique(char* date) {
-    FILE* athletesFile = fopen("athletes.txt", "r");
+    FILE* athletesFile = fopen("athlete.txt", "r");
     if (athletesFile != NULL) {
         char athleteName[50];
         while (fgets(athleteName, sizeof(athleteName), athletesFile)) {
@@ -206,3 +206,4 @@ void consulterHistorique() {
     scanf("%s", nom);
     lireHistorique(nom);
 }
+
