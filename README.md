@@ -28,7 +28,7 @@ Chaque fichier d'athlète contient une liste des entraînements sous le format s
 
 ### Utilisation du Programme
 Entrer et sauvegarder les résultats d'un nouvel entraînement\
-L'utilisateur sera invité à saisir les informations nécessaires (date, type d'épreuve, temps, position pour le relais) et ces données seront sauvegardées dans le fichier correspondant à l'athlète.\
+L'utilisateur sera invité à saisir les informations nécessaires (date, type d'épreuve, temps, position pour le relais) et ces données seront sauvegardées dans le fichier correspondant à l'athlète.
 
 Consulter l'historique des entraînements\
 L'utilisateur peut sélectionner un critère de consultation (par athlète, par épreuve ou par date) et le programme affichera les informations correspondantes.
