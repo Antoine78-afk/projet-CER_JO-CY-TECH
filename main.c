@@ -23,12 +23,12 @@ void consulterHistorique();
 
 // Affiche la bordure du menu
 void afficherBordure() {
-    printf(BOLD CYAN "=============================================================\n" RESET);
+    printf(BOLD CYAN "=================================================================================\n" RESET);
 }
 
 // Affiche le titre du menu
 void afficherTitre() {
-    printf(BOLD CYAN "||" RESET "                 " BOLD YELLOW "Gestion des Performances des Athlètes" RESET "                 " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET "                 " BOLD YELLOW "Gestion des Performances des Athlètes" RESET "                        " BOLD CYAN "||\n" RESET);
 }
 
 // Affiche le menu principal
@@ -36,11 +36,11 @@ void menu() {
     afficherBordure();
     afficherTitre();
     afficherBordure();
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Ajouter un nouvel entraînement" RESET "                                   " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter l'historique des entraînements" RESET "                         " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter les statistiques et la progression d'un athlète" RESET "        " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "4. Voir les 3 meilleurs athlètes pour chaque épreuve et les envoyer aux JO" RESET " " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD RED "5. Quitter" RESET "                                                          " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Ajouter un nouvel entraînement" RESET "                                            " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter l'historique des entraînements" RESET "                                  " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter les statistiques et la progression d'un athlète" RESET "                 " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "4. Voir les 3 meilleurs athlètes pour chaque épreuve et les envoyer aux JO " RESET "  " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD RED "5. Quitter" RESET "                                                                   " BOLD CYAN "||\n" RESET);
     afficherBordure();
 }
 
@@ -95,9 +95,9 @@ void consulterStatsEtProgression() {
     
     do {
         afficherBordure();
-        printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Consulter les statistiques" RESET "                                      " BOLD CYAN "||\n" RESET);
-        printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Afficher la progression d'un athlète" RESET "                            " BOLD CYAN "||\n" RESET);
-        printf(BOLD CYAN "||" RESET " " BOLD RED "3. Retour au menu principal" RESET "                                        " BOLD CYAN "||\n" RESET);
+        printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Consulter les statistiques" RESET "                                                " BOLD CYAN "||\n" RESET);
+        printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Afficher la progression d'un athlète" RESET "                                      " BOLD CYAN "||\n" RESET);
+        printf(BOLD CYAN "||" RESET " " BOLD RED "3. Retour au menu principal" RESET "                                                  " BOLD CYAN "||\n" RESET);
         afficherBordure();
         printf("Choisissez une option : ");
         scanf("%d", &choix);
