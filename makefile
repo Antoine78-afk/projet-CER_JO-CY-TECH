@@ -16,19 +16,19 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
 
 # Règle pour compiler main.c
-main.o: main.c athlete.h performance.h file_utils.h stats.h
+main.o: main.c 
 	$(CC) $(CFLAGS) -c main.c
 
 # Règle pour compiler athlete.c
-athlete.o: athlete.c athlete.h
+athlete.o: athlete.c header.h
 	$(CC) $(CFLAGS) -c athlete.c
 
 # Règle pour compiler performance.c
-performance.o: performance.c performance.h file_utils.h stats.h
+performance.o: performance.c header.h
 	$(CC) $(CFLAGS) -c performance.c
 
 # Règle pour compiler file_utils.c
-file_utils.o: file_utils.c file_utils.h performance.h
+file_utils.o: file_utils.c header.h
 	$(CC) $(CFLAGS) -c file_utils.c
 
 # Règle pour compiler stats.c
