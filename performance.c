@@ -1,6 +1,4 @@
-#include "performance.h"
-#include "file_utils.h"
-#include "stats.h"
+#include "header.h"
 
 // Crée une nouvelle performance
 Performance* creerPerformance(char* date, char* epreuve, float temps, int positionRelais) {
@@ -27,19 +25,12 @@ int validerDate(char* date) {
     if (sscanf(date, "%4d-%2d-%2d", &annee, &mois, &jour) != 3) {
         return 0; // Format incorrect
     }
-    if (annee < 1900 || annee > 2100 || mois < 1 || mois > 12 || jour < 1 || jour > 31) {
+    if (annee < 2000 || annee > 2100 || mois < 1 || mois > 12 || jour < 1 || jour > 31) {
         return 0; // Valeurs invalides
     }
     // Vérification des jours par mois
     if ((mois == 4 || mois == 6 || mois == 9 || mois == 11) && jour > 30) {
         return 0; // Mois de 30 jours
-    }
-    if (mois == 2) {
-        // Vérification des années bissextiles
-        int bissextile = (annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0);
-        if (jour > 29 || (jour == 29 && !bissextile)) {
-            return 0; // Février trop de jours
-        }
     }
     return 1; // Date valide
 }
@@ -92,6 +83,34 @@ int verifierRelaisUnique(char* date) {
     return 1; // Aucun relais trouvé ce jour-là
 }
 
+// Vérifie si un athlète existe dans le fichier athletes.txt
+int verifierAthleteExistant(char* nom) {
+    FILE* athletesFile = fopen("athlete.txt", "r");
+    if (athletesFile != NULL) {
+        char athleteName[50];
+        while (fgets(athleteName, sizeof(athleteName), athletesFile)) {
+            athleteName[strcspn(athleteName, "\n")] = '\0'; // Retire le saut de ligne
+            if (strcmp(athleteName, nom) == 0) {
+                fclose(athletesFile);
+                return 1; // Athlète trouvé
+            }
+        }
+        fclose(athletesFile);
+    }
+    return 0; // Athlète non trouvé
+}
+
+// Ajoute un athlète dans le fichier athletes.txt
+void ajouterAthlete(char* nom) {
+    FILE* athletesFile = fopen("athlete.txt", "a");
+    if (athletesFile != NULL) {
+        fprintf(athletesFile, "%s\n", nom);
+        fclose(athletesFile);
+    } else {
+        printf("Erreur : Impossible d'ouvrir le fichier athletes.txt\n");
+    }
+}
+
 // Ajoute un nouvel entraînement
 void ajouterEntrainement() {
     char nom[50], prenom[50], date[11], epreuve[50];
@@ -102,6 +121,11 @@ void ajouterEntrainement() {
     scanf("%s", nom);
     printf("Prénom: ");
     scanf("%s", prenom);
+
+    // Ajouter l'athlète au fichier athletes.txt s'il n'existe pas déjà
+    if (!verifierAthleteExistant(nom)) {
+        ajouterAthlete(nom);
+    }
 
     do {
         printf("Date (AAAA-MM-JJ): ");
@@ -129,7 +153,7 @@ void ajouterEntrainement() {
         scanf("%d", &positionRelais);
 
         // Vérifie qu'aucun athlète n'a déjà la même position dans le relais ce jour-là
-        FILE* athletesFile = fopen("athletes.txt", "r");
+        FILE* athletesFile = fopen("athlete.txt", "r");
         if (athletesFile != NULL) {
             char athleteName[50];
             while (fgets(athleteName, sizeof(athleteName), athletesFile)) {
