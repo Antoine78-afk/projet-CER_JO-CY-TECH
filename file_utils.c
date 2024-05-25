@@ -38,3 +38,41 @@ void lireHistorique(char* nom) {
     }
 }
 
+// Consulte l'historique des performances par nom, date ou épreuve
+void consulterHistoriqueParDateEpreuve(char* nom, char* date, char* epreuve) {
+    FILE* athletesFile = fopen("athlete.txt", "r");
+    if (athletesFile == NULL) {
+        printf("Erreur d'ouverture du fichier des athlètes\n");
+        return;
+    }
+
+    char athleteName[50];
+    while (fgets(athleteName, sizeof(athleteName), athletesFile)) {
+        athleteName[strcspn(athleteName, "\n")] = '\0'; // Retire le saut de ligne
+
+        char filename[60];
+        sprintf(filename, "%s.txt", athleteName);
+        FILE* file = fopen(filename, "r");
+        if (file == NULL) {
+            continue;
+        }
+
+        char line[100];
+        while (fgets(line, sizeof(line), file)) {
+            char dateLue[11], epreuveLue[50];
+            float temps;
+            int positionRelais;
+            sscanf(line, "%10[^,],%49[^,],%f,%d", dateLue, epreuveLue, &temps, &positionRelais);
+
+            if ((nom != NULL && strcmp(athleteName, nom) == 0) ||
+                (date != NULL && strcmp(dateLue, date) == 0) ||
+                (epreuve != NULL && strcmp(epreuveLue, epreuve) == 0)) {
+                Performance* performance = creerPerformance(dateLue, epreuveLue, temps, positionRelais);
+                afficherPerformance(performance);
+                free(performance);
+            }
+        }
+        fclose(file);
+    }
+    fclose(athletesFile);
+}
