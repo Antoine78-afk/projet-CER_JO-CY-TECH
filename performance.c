@@ -70,7 +70,7 @@ void ajouterEntrainement() {
     } while (!validerDate(date));
 
     do {
-        printf("Epreuve (choisissez parmi '100m', "400m", '5000m', 'marathon', 'relais'): ");
+        printf("Epreuve (choisissez parmi '100m', '400m', '5000m', 'marathon', 'relais'): ");
         scanf("%s", epreuve);
         if (!validerEpreuve(epreuve)) {
             printf("Epreuve invalide. Veuillez choisir une épreuve valide.\n");
