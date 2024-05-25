@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h" // Inclut le fichier d'en-tête
-#include <locale.h>
+#include "header.h"
+
 // Déclarations des fonctions
 void envoyerAuxJO();
 void consulterStatsEtProgression();
@@ -10,6 +10,7 @@ void afficherBordure();
 void afficherTitre();
 void menu();
 void consulterHistorique();
+void consulterHistoriqueParCritere();
 
 // Séquences d'échappement ANSI pour les couleurs
 #define RESET "\x1b[0m"
@@ -39,14 +40,13 @@ void menu() {
     printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Ajouter un nouvel entraînement" RESET "                                            " BOLD CYAN "||\n" RESET);
     printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter l'historique des entraînements" RESET "                                  " BOLD CYAN "||\n" RESET);
     printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter les statistiques et la progression d'un athlète" RESET "                 " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "4. Voir les 3 meilleurs athlètes pour chaque épreuve et les envoyer aux JO " RESET "  " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "4. Voir les 3 meilleurs athlètes pour une épreuve et les envoyer aux JO" RESET "      " BOLD CYAN "||\n" RESET);
     printf(BOLD CYAN "||" RESET " " BOLD RED "5. Quitter" RESET "                                                                   " BOLD CYAN "||\n" RESET);
     afficherBordure();
 }
 
 // Fonction principale
 int main() {
-     setlocale(LC_ALL, "en_US.UTF-8");
     int choix;
     do {
         system("clear"); // Efface la console (utilise "cls" sur Windows)
@@ -61,7 +61,7 @@ int main() {
                 afficherBordure();
                 break;
             case 2:
-                consulterHistorique();
+                consulterHistoriqueParCritere();
                 break;
             case 3:
                 consulterStatsEtProgression();
@@ -143,4 +143,39 @@ void consulterStatsEtProgression() {
         while (getchar() != '\n'); // Attend que l'utilisateur appuie sur Entrée
         getchar(); // Consomme le '\n' restant après scanf
     } while (choix != 3);
+}
+
+// Fonction pour consulter l'historique selon différents critères
+void consulterHistoriqueParCritere() {
+    int critere;
+    char valeur[50];
+    afficherBordure();
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Consulter par NOM" RESET "                                                " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter par DATE" RESET "                                               " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter par ÉPREUVE" RESET "                                            " BOLD CYAN "||\n" RESET);
+    afficherBordure();
+    printf("Choisissez un critère : ");
+    scanf("%d", &critere);
+
+    switch (critere) {
+        case 1:
+            printf("Nom de l'athlète: ");
+            scanf("%s", valeur);
+            consulterHistoriqueParDateEpreuve(valeur, NULL, NULL);
+            break;
+        case 2:
+            printf("Date (AAAA-MM-JJ): ");
+            scanf("%s", valeur);
+            consulterHistoriqueParDateEpreuve(NULL, valeur, NULL);
+            break;
+        case 3:
+            printf("Epreuve: ");
+            scanf("%s", valeur);
+            consulterHistoriqueParDateEpreuve(NULL, NULL, valeur);
+            break;
+        default:
+            afficherBordure();
+            printf(BOLD CYAN "||" RESET "                " BOLD RED "Option invalide, retour au menu principal." RESET "          " BOLD CYAN "||\n" RESET);
+            afficherBordure();
+    }
 }
