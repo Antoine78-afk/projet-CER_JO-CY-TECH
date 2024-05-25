@@ -156,9 +156,9 @@ void consulterHistoriqueParCritere() {
     int critere;
     char valeur[50];
     afficherBordure();
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Consulter par NOM" RESET "                                                " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter par DATE" RESET "                                               " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter par ÉPREUVE" RESET "                                            " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Consulter par NOM" RESET "                                                         " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter par DATE" RESET "                                                        " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter par ÉPREUVE" RESET "                                                     " BOLD CYAN "||\n" RESET);
     afficherBordure();
     printf("Choisissez un critère : ");
     scanf("%d", &critere);
