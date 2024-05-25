@@ -1,7 +1,7 @@
 # Introduction
 Ce programme permet de gérer et de suivre les performances d'athlètes dans diverses épreuves d'athlétisme.
 Il est conçu pour gérer des sportifs d'un seul genre et stocke les résultats d'entraînements dans des fichiers individuels pour chaque athlète.
-Les fonctionnalités principales incluent l'enregistrement de nouveaux entraînements, la consultation de l'historique des entraînements et l'analyse des performances des athlètes.
+Les fonctionnalités principales incluent l'enregistrement de nouveaux entraînements, la consultation de l'historique des entraînements et l'analyse des performances des athlètes. La finalté de ce programme est d'ensuite envoyer les meilleurs athtlètes avec les meilleurs performances aux  jeux Olympique.
 
  ### Fonctionnalités
 Enregistrement des Entraînements\
