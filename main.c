@@ -7,6 +7,7 @@
 void envoyerAuxJO();
 void consulterStatsEtProgression();
 void ajouterEntrainement();
+void afficherBordure();
 void afficherTitre();
 void menu();
 void consulterHistorique();
@@ -22,7 +23,10 @@ void consulterHistoriqueParCritere();
 #define RED "\x1b[31m"
 #define GREEN "\x1b[32m"
 
-
+// Affiche la bordure du menu
+void afficherBordure() {
+    printf(BOLD CYAN "=================================================================================\n" RESET);
+}
 
 // Affiche le titre du menu
 void afficherTitre() {
@@ -91,3 +95,93 @@ int main() {
     return 0;
 }
 
+// Fonction pour consulter les statistiques des athlètes et afficher la progression
+void consulterStatsEtProgression() {
+    int choix;
+    char nom[50], epreuve[50], date1[11], date2[11];
+    
+    do {
+        afficherBordure();
+        printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Consulter les statistiques" RESET "                                                " BOLD CYAN "||\n" RESET);
+        printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Afficher la progression d'un athlète" RESET "                                      " BOLD CYAN "||\n" RESET);
+        printf(BOLD CYAN "||" RESET " " BOLD RED "3. Retour au menu principal" RESET "                                                  " BOLD CYAN "||\n" RESET);
+        afficherBordure();
+        printf("Choisissez une option : ");
+        scanf("%d", &choix);
+        
+        switch (choix) {
+            case 1:
+                printf("Nom de l'athlète: ");
+                scanf("%s", nom);
+                printf("Épreuve: ");
+                scanf("%s", epreuve);
+                afficherBordure();
+                afficherStats(nom, epreuve);
+                afficherBordure();
+                break;
+            case 2:
+                printf("Nom de l'athlète: ");
+                scanf("%s", nom);
+                printf("Épreuve: ");
+                scanf("%s", epreuve);
+                printf("Date de début (AAAA-MM-JJ): ");
+                scanf("%s", date1);
+                printf("Date de fin (AAAA-MM-JJ): ");
+                scanf("%s", date2);
+                
+                if (!validerDate(date1) || !validerDate(date2)) {
+                    printf("Les dates entrées ne sont pas valides.\n");
+                    break;
+                }
+                
+                afficherBordure();
+                afficherProgression(nom, epreuve, date1, date2);
+                afficherBordure();
+                break;
+            case 3:
+                return; // Retourne au menu principal
+            default:
+                afficherBordure();
+                printf(BOLD CYAN "||" RESET "                " BOLD RED "Option invalide, retour au menu principal." RESET "          " BOLD CYAN "||\n" RESET);
+                afficherBordure();
+        }
+        printf("Appuyez sur Entrée pour continuer...");
+        while (getchar() != '\n'); // Attend que l'utilisateur appuie sur Entrée
+        getchar(); // Consomme le '\n' restant après scanf
+    } while (choix != 3);
+}
+
+// Fonction pour consulter l'historique selon différents critères
+void consulterHistoriqueParCritere() {
+    int critere;
+    char valeur[50];
+    afficherBordure();
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Consulter par NOM" RESET "                                                         " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter par DATE" RESET "                                                        " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter par ÉPREUVE" RESET "                                                     " BOLD CYAN "||\n" RESET);
+    afficherBordure();
+    printf("Choisissez un critère : ");
+    scanf("%d", &critere);
+
+    switch (critere) {
+        case 1:
+            printf("Nom de l'athlète: ");
+            scanf("%s", valeur);
+            consulterHistoriqueParDateEpreuve(valeur, NULL, NULL);
+            break;
+        case 2:
+            printf("Date (AAAA-MM-JJ): ");
+            scanf("%s", valeur);
+            consulterHistoriqueParDateEpreuve(NULL, valeur, NULL);
+            break;
+        case 3:
+            printf("Epreuve: ");
+            scanf("%s", valeur);
+            consulterHistoriqueParDateEpreuve(NULL, NULL, valeur);
+            break;
+        default:
+            afficherBordure();
+            printf(BOLD CYAN "||" RESET "                " BOLD RED "Option invalide, retour au menu principal." RESET "          " BOLD CYAN "||\n" RESET);
+            afficherBordure();
+    }
+}
