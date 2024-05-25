@@ -37,7 +37,7 @@ int validerTemps(float temps) {
 }
 
 int validerEpreuve(char* epreuve) {
-    const char* epreuves[] = {"100m", "200m", "400m", "marathon", "relais"};
+    const char* epreuves[] = {"100m", "400m","5000m" "marathon", "relais"};
     for (int i = 0; i < 5; i++) {
         if (strcmp(epreuve, epreuves[i]) == 0) {
             return 1;
@@ -70,7 +70,7 @@ void ajouterEntrainement() {
     } while (!validerDate(date));
 
     do {
-        printf("Epreuve (choisissez parmi '100m', '200m', '400m', 'marathon', 'relais'): ");
+        printf("Epreuve (choisissez parmi '100m', "400m", '5000m', 'marathon', 'relais'): ");
         scanf("%s", epreuve);
         if (!validerEpreuve(epreuve)) {
             printf("Epreuve invalide. Veuillez choisir une épreuve valide.\n");
