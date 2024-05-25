@@ -50,7 +50,7 @@ int comparerAthletes(const void* a, const void* b) {
 // Affiche les trois meilleurs athlètes pour chaque épreuve et les envoie aux JO
 void envoyerAuxJO() {
     char epreuve[50];
-    printf("Choisissez une épreuve (100m, 200m, 400m, marathon, relais) : ");
+    printf("Choisissez une épreuve (100m, 400m, 5000m, marathon, relais) : ");
     scanf("%s", epreuve);
 
     if (!validerEpreuve(epreuve)) {
