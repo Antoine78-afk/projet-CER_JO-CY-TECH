@@ -57,18 +57,22 @@ int main() {
         scanf("%d", &choix);
         switch (choix) {
             case 1:
+                printf(BOLD CYAN "||" RESET "                " BOLD GREEN "Nouvel entrainement:" RESET "                                  " BOLD CYAN "||\n" RESET);
                 ajouterEntrainement();
                 afficherBordure();
                 printf(BOLD CYAN "||" RESET "                " BOLD GREEN "Nouvel entraînement ajouté avec succès!" RESET "               " BOLD CYAN "||\n" RESET);
                 afficherBordure();
                 break;
             case 2:
+                printf(BOLD CYAN "||" RESET "                " BOLD GREEN "Consultation de l'historique:" RESET "                          " BOLD CYAN "||\n" RESET);
                 consulterHistoriqueParCritere();
                 break;
             case 3:
+                printf(BOLD CYAN "||" RESET "                " BOLD GREEN "Consultation des statistiques:" RESET "                         " BOLD CYAN "||\n" RESET);
                 consulterStatsEtProgression();
                 break;
             case 4:
+                printf(BOLD CYAN "||" RESET "                " BOLD GREEN "Selection olympique:" RESET "                                   " BOLD CYAN "||\n" RESET);
                 envoyerAuxJO();
                 break;
             case 5:
