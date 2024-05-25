@@ -1,4 +1,4 @@
-//#include "header.h"
+#include "header.h"
 
 Performance* creerPerformance(char* date, char* epreuve, float temps, int positionRelais) {
     Performance* performance = (Performance*) malloc(sizeof(Performance));
