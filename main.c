@@ -7,7 +7,6 @@
 void envoyerAuxJO();
 void consulterStatsEtProgression();
 void ajouterEntrainement();
-void afficherBordure();
 void afficherTitre();
 void menu();
 void consulterHistorique();
@@ -23,10 +22,7 @@ void consulterHistoriqueParCritere();
 #define RED "\x1b[31m"
 #define GREEN "\x1b[32m"
 
-// Affiche la bordure du menu
-void afficherBordure() {
-    printf(BOLD CYAN "=================================================================================\n" RESET);
-}
+
 
 // Affiche le titre du menu
 void afficherTitre() {
