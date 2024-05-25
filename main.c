@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "header.h"
+#include <locale.h>
 
 // Déclarations des fonctions
 void envoyerAuxJO();
@@ -47,6 +48,7 @@ void menu() {
 
 // Fonction principale
 int main() {
+    setlocale(LC_ALL, "en_US.UTF-8");
     int choix;
     do {
         system("clear"); // Efface la console (utilise "cls" sur Windows)
