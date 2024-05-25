@@ -111,12 +111,12 @@ void envoyerAuxJO() {
         qsort(performances, nbPerformances, sizeof(AthletePerformance), comparerAthletes);
 
         // Afficher les trois meilleurs
-        printf("Les trois meilleurs athlètes pour l'épreuve %s sont:\n", epreuve);
+        printf(BOLD GREEN "Les trois meilleurs athlètes pour l'épreuve %s sont:\n"RESET, epreuve);
         for (int k = 0; k < 3 && k < nbPerformances; k++) {
             printf("%d. %s avec un temps moyen de %.2f\n", k + 1, performances[k].nom, performances[k].tempsMoyen);
         }
     } else {
-        printf("Aucune performance trouvée pour l'épreuve %s.\n", epreuve);
+        printf(BOLD GREEN"Aucune performance trouvée pour l'épreuve %s.\n"RESET, epreuve);
     }
 }
 
