@@ -44,6 +44,11 @@ typedef struct {
 } AthletePerformance;
 
 
+// Affiche la bordure du menu
+void afficherBordure() {
+    printf(BOLD CYAN "=================================================================================\n" RESET);
+}
+
 // Fonction pour créer une performance
 Performance* creerPerformance(char* date, char* epreuve, float temps, int positionRelais);
 
