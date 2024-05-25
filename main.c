@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h" // Inclut le fichier d'en-tête
+#include "header.h" // Inclut le fichier d'en-tete
 
-// Déclarations des fonctions
+// Declarations des fonctions
 void envoyerAuxJO();
 void consulterStatsEtProgression();
 void ajouterEntrainement();
@@ -11,7 +11,7 @@ void afficherTitre();
 void menu();
 void consulterHistorique();
 
-// Séquences d'échappement ANSI pour les couleurs
+// Sequences d'echappement ANSI pour les couleurs
 #define RESET "\x1b[0m"
 #define BOLD "\x1b[1m"
 #define UNDERLINE "\x1b[4m"
@@ -28,7 +28,7 @@ void afficherBordure() {
 
 // Affiche le titre du menu
 void afficherTitre() {
-    printf(BOLD CYAN "||" RESET "                 " BOLD YELLOW "Gestion des Performances des Athlètes" RESET "                        " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET "                 " BOLD YELLOW "Gestion des Performances des Athletes" RESET "                        " BOLD CYAN "||\n" RESET);
 }
 
 // Affiche le menu principal
@@ -36,10 +36,10 @@ void menu() {
     afficherBordure();
     afficherTitre();
     afficherBordure();
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Ajouter un nouvel entraînement" RESET "                                            " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter l'historique des entraînements" RESET "                                  " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter les statistiques et la progression d'un athlète" RESET "                 " BOLD CYAN "||\n" RESET);
-    printf(BOLD CYAN "||" RESET " " BOLD GREEN "4. Voir les 3 meilleurs athlètes pour chaque épreuve et les envoyer aux JO " RESET "  " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Ajouter un nouvel entrainement" RESET "                                            " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Consulter l'historique des entrainements" RESET "                                  " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "3. Consulter les statistiques et la progression d'un athlete" RESET "                 " BOLD CYAN "||\n" RESET);
+    printf(BOLD CYAN "||" RESET " " BOLD GREEN "4. Voir les 3 meilleurs athletes pour chaque epreuve et les envoyer aux JO " RESET "  " BOLD CYAN "||\n" RESET);
     printf(BOLD CYAN "||" RESET " " BOLD RED "5. Quitter" RESET "                                                                   " BOLD CYAN "||\n" RESET);
     afficherBordure();
 }
@@ -56,7 +56,7 @@ int main() {
             case 1:
                 ajouterEntrainement();
                 afficherBordure();
-                printf(BOLD CYAN "||" RESET "                " BOLD GREEN "Nouvel entraînement ajouté avec succès!" RESET "               " BOLD CYAN "||\n" RESET);
+                printf(BOLD CYAN "||" RESET "                " BOLD GREEN "Nouvel entrainement ajoute avec succes!" RESET "               " BOLD CYAN "||\n" RESET);
                 afficherBordure();
                 break;
             case 2:
@@ -75,20 +75,20 @@ int main() {
                 break;
             default:
                 afficherBordure();
-                printf(BOLD CYAN "||" RESET "                " BOLD RED "Option invalide, veuillez réessayer." RESET "                 " BOLD CYAN "||\n" RESET);
+                printf(BOLD CYAN "||" RESET "                " BOLD RED "Option invalide, veuillez reessayer." RESET "                 " BOLD CYAN "||\n" RESET);
                 afficherBordure();
         }
         if (choix != 5) {
-            printf("Appuyez sur Entrée pour continuer...");
-            while (getchar() != '\n'); // Attend que l'utilisateur appuie sur Entrée
-            getchar(); // Consomme le '\n' restant après scanf
+            printf("Appuyez sur Entree pour continuer...");
+            while (getchar() != '\n'); // Attend que l'utilisateur appuie sur Entree
+            getchar(); // Consomme le '\n' restant apres scanf
         }
     } while (choix != 5);
 
     return 0;
 }
 
-// Fonction pour consulter les statistiques des athlètes et afficher la progression
+// Fonction pour consulter les statistiques des athletes et afficher la progression
 void consulterStatsEtProgression() {
     int choix;
     char nom[50], epreuve[50], date1[11], date2[11];
@@ -96,7 +96,7 @@ void consulterStatsEtProgression() {
     do {
         afficherBordure();
         printf(BOLD CYAN "||" RESET " " BOLD GREEN "1. Consulter les statistiques" RESET "                                                " BOLD CYAN "||\n" RESET);
-        printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Afficher la progression d'un athlète" RESET "                                      " BOLD CYAN "||\n" RESET);
+        printf(BOLD CYAN "||" RESET " " BOLD GREEN "2. Afficher la progression d'un athlete" RESET "                                      " BOLD CYAN "||\n" RESET);
         printf(BOLD CYAN "||" RESET " " BOLD RED "3. Retour au menu principal" RESET "                                                  " BOLD CYAN "||\n" RESET);
         afficherBordure();
         printf("Choisissez une option : ");
@@ -104,26 +104,26 @@ void consulterStatsEtProgression() {
         
         switch (choix) {
             case 1:
-                printf("Nom de l'athlète: ");
+                printf("Nom de l'athlete: ");
                 scanf("%s", nom);
-                printf("Épreuve: ");
+                printf("Epreuve: ");
                 scanf("%s", epreuve);
                 afficherBordure();
                 afficherStats(nom, epreuve);
                 afficherBordure();
                 break;
             case 2:
-                printf("Nom de l'athlète: ");
+                printf("Nom de l'athlete: ");
                 scanf("%s", nom);
-                printf("Épreuve: ");
+                printf("Epreuve: ");
                 scanf("%s", epreuve);
-                printf("Date de début (AAAA-MM-JJ): ");
+                printf("Date de debut (AAAA-MM-JJ): ");
                 scanf("%s", date1);
                 printf("Date de fin (AAAA-MM-JJ): ");
                 scanf("%s", date2);
                 
                 if (!validerDate(date1) || !validerDate(date2)) {
-                    printf("Les dates entrées ne sont pas valides.\n");
+                    printf("Les dates entrees ne sont pas valides.\n");
                     break;
                 }
                 
@@ -138,8 +138,8 @@ void consulterStatsEtProgression() {
                 printf(BOLD CYAN "||" RESET "                " BOLD RED "Option invalide, retour au menu principal." RESET "          " BOLD CYAN "||\n" RESET);
                 afficherBordure();
         }
-        printf("Appuyez sur Entrée pour continuer...");
-        while (getchar() != '\n'); // Attend que l'utilisateur appuie sur Entrée
-        getchar(); // Consomme le '\n' restant après scanf
+        printf("Appuyez sur Entree pour continuer...");
+        while (getchar() != '\n'); // Attend que l'utilisateur appuie sur Entree
+        getchar(); // Consomme le '\n' restant apres scanf
     } while (choix != 3);
 }
