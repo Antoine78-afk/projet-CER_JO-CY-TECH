@@ -10,7 +10,7 @@ CFLAGS = -Wall -Wextra -std=c11
 TARGET = main
 
 # Source files
-SRCS = athlete.c file_utils.c main.c performance.c stats.c
+SRCS = performance.c athlete.c file_utils.c main.c  stats.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
