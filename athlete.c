@@ -1,4 +1,4 @@
-//#include "header.h"
+#include "header.h"
 
 // Fonction pour créer un athlète et initialiser ses informations
 Athlete* creerAthlete(char* nom, char* prenom) {
