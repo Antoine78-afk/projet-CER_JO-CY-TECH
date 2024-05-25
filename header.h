@@ -1,5 +1,5 @@
-#ifndef ATHLETE_H // Vérifie si ATHLETE_H n'a pas été défini précédemment
-#define ATHLETE_H // Définit ATHLETE_H pour éviter une inclusion multiple
+#ifndef ATHLETE_H
+#define ATHLETE_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +12,6 @@ typedef struct {
 } Athlete;
 
 // Fonction pour créer un athlète
-// Alloue de la mémoire et initialise les champs nom et prénom
 Athlete* creerAthlete(char* nom, char* prenom);
 
 // Fonction pour afficher les informations d'un athlète
@@ -33,7 +32,6 @@ typedef struct {
 } AthletePerformance;
 
 // Fonction pour créer une performance
-// Alloue de la mémoire et initialise les champs date, epreuve, temps et positionRelais
 Performance* creerPerformance(char* date, char* epreuve, float temps, int positionRelais);
 
 // Fonction pour afficher une performance
@@ -45,16 +43,16 @@ void ajouterEntrainement();
 // Fonction pour consulter l'historique des entraînements
 void consulterHistorique();
 
+// Fonction pour consulter l'historique des entraînements par date et épreuve
+void consulterHistoriqueParDateEpreuve(char* nom, char* date, char* epreuve);
+
 // Fonction pour valider le format d'une date
-// Retourne 1 si la date est valide, 0 sinon
 int validerDate(char* date);
 
 // Fonction pour valider le format d'un temps
-// Retourne 1 si le temps est valide, 0 sinon
 int validerTemps(float temps);
 
 // Fonction pour valider le nom d'une épreuve
-// Retourne 1 si l'épreuve est valide, 0 sinon
 int validerEpreuve(char* epreuve);
 
 // Fonction pour afficher les statistiques des performances d'un athlète pour une épreuve donnée
@@ -66,16 +64,25 @@ void sauvegarderPerformance(char* nom, Performance* performance);
 // Fonction pour lire l'historique des performances d'un athlète
 void lireHistorique(char* nom);
 
+// Fonction pour vérifier qu'un relais est unique par jour
+int verifierRelaisUnique(char* date);
+
+// Fonction pour vérifier qu'un athlète existe
+int verifierAthleteExistant(char* nom);
+
+// Fonction pour vérifier si un athlète a déjà couru dans une journée donnée
+int verifierParticipationDuJour(char* nom, char* date);
+
+// Fonction pour vérifier la position dans un relais à une date donnée
+int verifierPositionRelais(char* date, int position);
+
+// Fonction pour ajouter un athlète
+void ajouterAthlete(char* nom);
+
 // Fonction pour afficher les trois meilleurs athlètes pour chaque épreuve et les envoyer aux JO
 void envoyerAuxJO();
 
 // Fonction pour afficher la progression d'un athlète pour une même épreuve entre deux dates
 void afficherProgression(char* nom, char* epreuve, char* date1, char* date2);
 
-#endif // ATHLETE_H // Fin de la définition de ATHLETE_H
-
-
-
-
-
-    
+#endif // ATHLETE_H
