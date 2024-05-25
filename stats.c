@@ -1,11 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <float.h>
 #include "header.h"
-
-
-
+#include <float.h>
 
 // Affiche les statistiques des performances d'un athlète pour une épreuve donnée
 void afficherStats(char* nom, char* epreuve) {
@@ -16,7 +10,7 @@ void afficherStats(char* nom, char* epreuve) {
         char line[100];
         float meilleurTemps = FLT_MAX, pireTemps = 0, sommeTemps = 0;
         int nbEntrainements = 0;
-        
+
         while (fgets(line, sizeof(line), file)) {
             char date[11], event[50];
             float temps;
@@ -30,7 +24,7 @@ void afficherStats(char* nom, char* epreuve) {
             }
         }
         fclose(file);
-        
+
         if (nbEntrainements > 0) {
             printf("Statistiques pour %s dans l'épreuve %s:\n", nom, epreuve);
             printf("Meilleur temps: %.2f\n", meilleurTemps);
@@ -55,9 +49,16 @@ int comparerAthletes(const void* a, const void* b) {
 
 // Affiche les trois meilleurs athlètes pour chaque épreuve et les envoie aux JO
 void envoyerAuxJO() {
-    const char* epreuves[] = {"100m", "200m", "400m", "marathon", "relais"};
-    int nbEpreuves = 5;
-    char athletes[100][50]; // Tableau pour stocker les noms des athlètes
+    char epreuve[50];
+    printf("Choisissez une épreuve (100m, 200m, 400m, marathon, relais) : ");
+    scanf("%s", epreuve);
+
+    if (!validerEpreuve(epreuve)) {
+        printf("Epreuve invalide.\n");
+        return;
+    }
+
+    char athletes[100][50];
     int nbAthletes = 0;
 
     // Charger la liste des athlètes
@@ -73,54 +74,49 @@ void envoyerAuxJO() {
         return;
     }
 
-    // Pour chaque épreuve, trouver les trois meilleurs athlètes
-    for (int i = 0; i < nbEpreuves; i++) {
-        AthletePerformance performances[100];
-        int nbPerformances = 0;
+    AthletePerformance performances[100];
+    int nbPerformances = 0;
 
-        for (int j = 0; j < nbAthletes; j++) {
-            char filename[60];
-            sprintf(filename, "%s.txt", athletes[j]);
-            FILE* file = fopen(filename, "r");
-            if (file != NULL) {
-                char line[100];
-                float sommeTemps = 0;
-                int nbEntrainements = 0;
+    for (int j = 0; j < nbAthletes; j++) {
+        char filename[60];
+        sprintf(filename, "%s.txt", athletes[j]);
+        FILE* file = fopen(filename, "r");
+        if (file != NULL) {
+            char line[100];
+            float sommeTemps = 0;
+            int nbEntrainements = 0;
 
-                while (fgets(line, sizeof(line), file)) {
-                    char date[11], event[50];
-                    float temps;
-                    int positionRelais;
-                    sscanf(line, "%10[^,],%49[^,],%f,%d", date, event, &temps, &positionRelais);
-                    if (strcmp(event, epreuves[i]) == 0) {
-                        sommeTemps += temps;
-                        nbEntrainements++;
-                    }
+            while (fgets(line, sizeof(line), file)) {
+                char date[11], event[50];
+                float temps;
+                int positionRelais;
+                sscanf(line, "%10[^,],%49[^,],%f,%d", date, event, &temps, &positionRelais);
+                if (strcmp(event, epreuve) == 0) {
+                    sommeTemps += temps;
+                    nbEntrainements++;
                 }
-                fclose(file);
+            }
+            fclose(file);
 
-                if (nbEntrainements > 0) {
-                    performances[nbPerformances].tempsMoyen = sommeTemps / nbEntrainements;
-                    strcpy(performances[nbPerformances].nom, athletes[j]);
-                    nbPerformances++;
-                }
-            } else {
-                perror("il n'y a pas d'athlète à cette position");
+            if (nbEntrainements > 0) {
+                performances[nbPerformances].tempsMoyen = sommeTemps / nbEntrainements;
+                strcpy(performances[nbPerformances].nom, athletes[j]);
+                nbPerformances++;
             }
         }
+    }
 
-        // Trier les performances pour trouver les trois meilleurs
-        if (nbPerformances > 0) {
-            qsort(performances, nbPerformances, sizeof(AthletePerformance), comparerAthletes);
+    // Trier les performances pour trouver les trois meilleurs
+    if (nbPerformances > 0) {
+        qsort(performances, nbPerformances, sizeof(AthletePerformance), comparerAthletes);
 
-            // Afficher les trois meilleurs
-            printf("Les trois meilleurs athlètes pour l'épreuve %s sont:\n", epreuves[i]);
-            for (int k = 0; k < 3 && k < nbPerformances; k++) {
-                printf("%d. %s avec un temps moyen de %.2f\n", k + 1, performances[k].nom, performances[k].tempsMoyen);
-            }
-        } else {
-            printf("Aucune performance trouvée pour l'épreuve %s.\n", epreuves[i]);
+        // Afficher les trois meilleurs
+        printf("Les trois meilleurs athlètes pour l'épreuve %s sont:\n", epreuve);
+        for (int k = 0; k < 3 && k < nbPerformances; k++) {
+            printf("%d. %s avec un temps moyen de %.2f\n", k + 1, performances[k].nom, performances[k].tempsMoyen);
         }
+    } else {
+        printf("Aucune performance trouvée pour l'épreuve %s.\n", epreuve);
     }
 }
 
@@ -158,9 +154,3 @@ void afficherProgression(char* nom, char* epreuve, char* date1, char* date2) {
         printf("Pas d'historique trouvé pour cet athlète\n");
     }
 }
-
-
-
-
-
-
