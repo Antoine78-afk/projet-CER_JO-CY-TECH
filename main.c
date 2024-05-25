@@ -77,7 +77,7 @@ int main() {
                 break;
             case 5:
                 afficherBordure();
-                printf(BOLD CYAN "||" RESET "                      " BOLD RED "Au revoir!" RESET "                                                " BOLD CYAN "||\n" RESET);
+                printf(BOLD CYAN "||" RESET "                      " BOLD RED "Au revoir!" RESET "                                              " BOLD CYAN "||\n" RESET);
                 afficherBordure();
                 break;
             default:
