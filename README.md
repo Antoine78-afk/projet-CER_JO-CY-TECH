@@ -37,3 +37,5 @@ L'utilisateur peut sélectionner un critère de consultation (par athlète, par 
 
 Consulter des statistiques de performances\
 L'utilisateur peut demander un résumé des performances d'un athlète, les trois meilleurs athlètes pour une discipline ou la progression des performances d'un athlète entre deux dates.
+Afin de faciliter l'utilisation du programme voici la liste des athlète dèjà présent:
+Antoine
