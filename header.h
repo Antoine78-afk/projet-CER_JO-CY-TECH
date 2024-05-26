@@ -37,6 +37,7 @@ typedef struct {
     char epreuve[50]; // Nom de l'épreuve
     float temps; // Temps réalisé par l'athlète
     int positionRelais; // Position dans le relais (de 1 à 4), -1 si ce n'est pas une épreuve de relais
+    char nom[50];
 } Performance; // Définition de la structure Performance
 
 // Structure représentant les performances moyennes d'un athlète
@@ -48,7 +49,7 @@ typedef struct {
 // Fonction pour créer une performance
 // Paramètres : date (chaîne de caractères), epreuve (chaîne de caractères), temps (nombre flottant), positionRelais (entier)
 // Retourne : un pointeur vers une structure Performance nouvellement créée
-Performance* creerPerformance(char* date, char* epreuve, float temps, int positionRelais);
+Performance* creerPerformance(char* date, char* epreuve, float temps, int positionRelais, char* nom);
 
 // Fonction pour afficher une performance
 // Paramètre : performance (pointeur vers une structure Performance)
