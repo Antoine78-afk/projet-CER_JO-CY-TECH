@@ -136,9 +136,9 @@ void consulterStatsEtProgression() {
                 scanf("%s", nom); // Lit le nom de l'athlète
                 printf("Épreuve: ");
                 scanf("%s", epreuve); // Lit le nom de l'épreuve
-                printf("Date de début (AAAA-MM-JJ): ");
+                printf("Date entrainement 1 (AAAA-MM-JJ): ");
                 scanf("%s", date1); // Lit la date de début
-                printf("Date de fin (AAAA-MM-JJ): ");
+                printf("Date entrainement 2 (AAAA-MM-JJ): ");
                 scanf("%s", date2); // Lit la date de fin
                 
                 if (!validerDate(date1) || !validerDate(date2)) {
